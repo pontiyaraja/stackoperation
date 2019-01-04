@@ -4,6 +4,17 @@ import "fmt"
 
 type myStackType []int
 
+type StackOpInter interface {
+	StackInterface() StackInter
+}
+
+type StackInter interface {
+	Push(int)
+	Pull() *int
+	GetPeek() *int
+	ShowMyStack()
+}
+
 func (myStack *myStackType) Push(data int) {
 	*myStack = append(*myStack, data)
 	fmt.Println(myStack)
